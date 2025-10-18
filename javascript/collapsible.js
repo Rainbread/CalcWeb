@@ -51,7 +51,6 @@ const sidebarContents = {
                     sidebarTitle.textContent = sidebarContents[type].title;
                     sidebarContent.innerHTML = sidebarContents[type].content;
                     sidebar.classList.add('active');
-                    sidebarOverlay.classList.add('active');
                 }
             }
             
@@ -66,6 +65,5 @@ const sidebarContents = {
             //Sidebar close event
             closeSidebar.addEventListener('click', function() {
                 sidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
             });
         });
