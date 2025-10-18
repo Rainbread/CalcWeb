@@ -7,24 +7,36 @@
         <link rel="stylesheet" href="css/stylesheet.css">
         <title>CalcWeb - Let's Calc!</title>
     </head>
-    
     <body style="background-color:lightcyan">
-        <!--The header with collapsible menu-->
         <header>
+            <!--Drop-down menu-->
             <div class="dropdown-container">
                 <button type="button" class="dropdown">
-                    More
+                    MORE
                 </button>
                 <div class="content">
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Tutorial</a></li>
-                    <li><a href="#">About</a></li>
+                    <ul>
+                        <li><button data-type="history" class="sidebar-btn">History</button></li>
+                        <li><button data-type="tutorial" class="sidebar-btn">Tutorial</button></li>
+                        <li><button data-type="about" class="sidebar-btn">About</button></li>
+                    </ul>
                 </div>
             </div>
-                <h1 style="letter-spacing: 5px;">CalcWeb</h1>
+            <h1 style="letter-spacing: 5px;"><img src="img/calcweb.png" alt="logo" id="logo"> | CalcWeb</h1>
         </header>
-        <!--javascript here-->
-        <script src="javascript/collapsible.js"></script>
-    </body>
+    
+    <!--Sidebar menu-->
+    <div class="sidebar" id="sidebar">  
+        <div class="sidebar-header">
+            <h2 class="sidebar-title" id="sidebar-title"></h2>
+            <button class="close-btn" id="close-sidebar">X</button>
+        </div>
+        <div class="sidebar-content" id="sidebar-content">
 
+        </div>
+    </div>
+
+    <!--javascript here-->
+    <script src="javascript/collapsible.js"></script>
+</body>
 </html>
