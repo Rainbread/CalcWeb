@@ -7,22 +7,40 @@
         <link rel="stylesheet" href="css/stylesheet.css">
         <title>CalcWeb - Let's Calc!</title>
     </head>
-    <body style="background-color:lightcyan">
+    <body class="default-theme">
         <header>
-            <!--Drop-down menu-->
-            <div class="dropdown-container">
-                <button type="button" class="dropdown">
-                    MORE
-                </button>
-                <div class="content">
-                    <ul>
-                        <li><button data-type="history" class="sidebar-btn">History</button></li>
-                        <li><button data-type="tutorial" class="sidebar-btn">Tutorial</button></li>
-                        <li><button data-type="about" class="sidebar-btn">About</button></li>
-                    </ul>
+            <!--Wrap drop-down menu together in one place-->
+            <div class="header-left">
+                <!--Color theme menu-->
+                <div class="dropdown-container">
+                    <button type="button" class="dropdown" data-menu="theme">COLOR THEME</button>
+                    <div class="content" data-menu="theme">
+                        <ul>
+                            <!--Default theme-->
+                            <li><button class="theme-option default-theme" data-theme="default-theme">Default</button></li>
+                            <!--Dark theme-->
+                            <li><button class="theme-option" data-theme="dark-theme">Dark</button></li>
+                            <!--Hurt my eye theme-->
+                            <li><button class="theme-option" data-theme="hurt-theme">Hurt</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Drop-down menu-->
+                <div class="dropdown-container">
+                    <button type="button" class="dropdown" data-menu="more">
+                        MORE
+                    </button>
+                    <div class="content" data-menu="more">
+                        <ul>
+                            <li><button data-type="history" class="sidebar-btn">History</button></li>
+                            <li><button data-type="tutorial" class="sidebar-btn">Tutorial</button></li>
+                            <li><button data-type="about" class="sidebar-btn">About</button></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <h1 style="letter-spacing: 5px;"><img src="img/calcweb.png" alt="logo" id="logo"> | CalcWeb</h1>
+            <h1><img src="img/calcweb.png" alt="logo" id="logo"> | CalcWeb</h1>
         </header>
     
     <!--Sidebar menu-->
@@ -36,7 +54,9 @@
         </div>
     </div>
 
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <!--javascript here-->
-    <script src="javascript/collapsible.js"></script>
+    <script src="javascript/interface.js"></script>
 </body>
 </html>
