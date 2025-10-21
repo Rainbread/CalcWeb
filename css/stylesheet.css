@@ -1,3 +1,32 @@
+/*Default color theme: bright*/
+:root {
+    --primary-color: #2FEED4;
+    --secondary-color: #e0ffff;
+    --background-color: #47AFE6;
+    --sec-background-color: #9DDBFA;
+    --text-color: #000000;
+    --close-color: #FF0000;
+}
+
+/*Color theme: dark*/
+.dark-theme {
+    --primary-color: #000000;
+    --secondary-color: #1A1A1A;
+    --background-color: #542009; 
+    --sec-background-color: #A6441B;
+    --text-color: #FFFFFF;
+    --close-color: #FF0000;
+}
+
+/*Color theme: hurt my eye*/
+.hurt-theme {
+    --primary-color: blue;
+    --secondary-color: red;
+    --background-color: blue;
+    --sec-background-color: rgb(0, 204, 255);
+    --text-color: red;
+}
+
 /*Adjust overall element*/
 * {
     margin: 0;
@@ -8,7 +37,7 @@
         
 /*Adjust related element/class/id on itself*/
 header {
-    background-color: aquamarine;
+    background-color: var(--primary-color);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -16,10 +45,26 @@ header {
     position: relative;
 }
 
+/*Wrap drop-down menu together in one place*/
+.header-left {
+    display: flex;
+    gap: 20px;
+}
+
 /*Adjust logo*/
 #logo {
     width: 40px;
     height: 40px;
+}
+
+h1 {
+    color: var(--text-color);
+    letter-spacing: 5px;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 /*Drop-down menu*/
@@ -29,24 +74,27 @@ header {
 }
         
 .dropdown {
-    background-color: lime;
-    border: 2px soild black;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
     padding: 0.7rem 1.5rem;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 1rem;    
     font-weight: 550;
     transition: all 0.5s ease;
     display: flex;
     cursor: pointer;
-    align-items: center;
+    align-items: center;    
 }
         
 .dropdown:hover {
-    background-color: greenyellow;
+    background-color: var(--sec-background-color);
+    color: var(--text-color);
 }
         
 .content {
-    background-color: rgb(223, 255, 174);
+    background-color: var(--sec-background-color);
+    color: var(--text-color);
     display: none;
     overflow: hidden;
     position: absolute;
@@ -56,9 +104,9 @@ header {
 }  
         
 .content button {
+    color: var(--text-color);
     background: none;
     border: none;
-    color: #333;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -70,7 +118,8 @@ header {
 }
         
 .content button:hover {
-    background-color: rgb(188, 240, 111);
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-size: larger;
     font-weight: 800;
 }
@@ -82,12 +131,13 @@ header {
         
 /*Sidebar button*/
 .sidebar {
+    background-color: var(--sec-background-color);
+    color: var(--text-color);
     position: fixed;
     top: 0;
     left: -4500px;
     width: 450px;
     height: 100vh;
-    background-color: lightblue;
     transition: left 0.8s ease;
     z-index: 1000;
     padding: 2rem;
@@ -99,6 +149,7 @@ header {
 }
 
 .sidebar-header {
+    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,6 +159,7 @@ header {
 }
         
 .close-btn {
+    color: var(--text-color);
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -115,6 +167,6 @@ header {
     transition: color 0.1s;
 }
         
-.close-btn:hover {
-    color: red;
+.close-btn:hover {  
+    color: var(--close-color);
 }
