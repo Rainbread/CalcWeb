@@ -1,4 +1,4 @@
-//More sidebar conntents
+//More sidebar contents
 const sidebarContents = {
             history: {
                 title: "CalcWeb History",
@@ -9,20 +9,39 @@ const sidebarContents = {
             tutorial: {
                 title: "CalcWeb Tutorial",
                 content: `
-                    
+                    <p><strong>Operators:</strong></p>
+                    <p><strong>Basic:</strong> Contain basic arithmetic function (e.g. +, -).</p>
+                    <p><strong>Advance:</strong> Contain advance arithmetic function (e.g. sin(), log(), !, etc).</p>
+                    <hr>
+                    <p><strong>Basic Arithmetic Operators:</strong></p>
+                    <p><strong>AC:</strong> Clear inputs and outputs on the display.</p>
+                    <p><strong>+:</strong> Adding two or more numbers togerther to obtain their sum.</p>
+                    <p><strong>-:</strong> Subtract two or more numbers to obtain their difference.</p>
+                    <p><strong>x:</strong> Mutiply two or more numbers to obtain their mutiplication.</p>
+                    <p><strong>/:</strong> Divide two numbers to obtain their division.</p>
+                    <p><strong>%:</strong> Module two or more number to obtain their result.</p>
+                    <p><strong>():</strong> Operation inside the parenthese will be calculated first.</p>
+                    <p><strong>=:</strong> The result after the operations.</p>
+                    <hr>
+                    <p><strong>Advance Arithmetic Operators:</strong></p>
+                    <p><strong>UPCOMING SOON!</strong></p>
                 `
             },
             about: {
                 title: "About CalcWeb",
                 content: `
-                    
+                    <p><strong>Developer:</strong> Mingwei You, Rafael Carrilllo</p>
+                    <p><strong>Why Developed:</strong> Just for fun and learn :-P</p>
+                    <p><strong>Why are the Color so Bad:</strong> idk</p>
+                    <hr>
+                    <p><strong>Date Created:</strong> 10/9/2025</p>
+                    <p><strong>Date Updated:</strong> 10/21/2025</p>
                 `
             }
         };  
 
         //Define variables
         document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
             const dropdownBtn = document.querySelectorAll('.dropdown');
             const dropdownContent = document.querySelectorAll('.content');
             const sidebarBtn = document.querySelectorAll('.sidebar-btn');
@@ -32,7 +51,9 @@ const sidebarContents = {
             const closeSidebar = document.getElementById('close-sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
             const themeBtn = document.querySelectorAll('.theme-option');
-            
+            const savedTheme = localStorage.getItem('web-theme') || 'default';
+            setTheme(savedTheme);
+
             //Event for all drop-down button
             dropdownBtn.forEach(button => {
                 button.addEventListener('click', function() {
@@ -67,7 +88,7 @@ const sidebarContents = {
             themeBtn.forEach(button => {
                 button.addEventListener('click', function() {
                     const theme = this.getAttribute('data-theme');
-                    switchTheme(theme);
+                    setTheme(theme);
                     //Close theme content
                     const themeContent = document.querySelector('.content[data-menu="theme"]');
                     themeContent.classList.remove('show');
@@ -85,10 +106,15 @@ const sidebarContents = {
             }
             
             //Switch color theme
-            function switchTheme(theme) {
-                body.classList.remove('default-theme', 'dark-theme', 'hurt-theme');
-                body.classList.add(theme);
+            function setTheme(theme) {
+                document.body.classList.remove('default', 'dark-theme', 'hurt-theme', 'dripGoku-theme');
+                if (theme !== 'default') {
+                    document.body.classList.add(theme + '-theme');
+                }
+                //Save color theme to local storage
+                localStorage.setItem('web-theme', theme);
             }
+
             
             //Close sidebar
             closeSidebar.addEventListener('click', function() {
