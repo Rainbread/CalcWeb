@@ -1,43 +1,66 @@
 /*Default color theme: bright*/
 :root {
-    --primary-color: #2FEED4;
-    --secondary-color: #e0ffff;
-    --background-color: #47AFE6;
-    --sec-background-color: #9DDBFA;
+    --header-color: #2FEED4;
+    --background-color: #e0ffff;
+    --dropbtn-color: #47AFE6;
+    --dropbtn-hover-color: #9DDBFA;
+    --sidebar-content-color: #66D2FF;
+    --calc-btn-hover-color: #94E3E3;
     --text-color: #000000;
-    --close-color: #FF0000;
+    --close-btn-color: #C41700;
+    --close-btn-active-color: #731500;
+    --transition-speed: 0.6s;
 }
 
 /*Color theme: dark*/
 .dark-theme {
-    --primary-color: #000000;
-    --secondary-color: #1A1A1A;
-    --background-color: #542009; 
-    --sec-background-color: #A6441B;
-    --text-color: #FFFFFF;
-    --close-color: #FF0000;
+    --header-color: #000000;
+    --background-color: #1A1A1A;
+    --dropbtn-color: #8C009C; 
+    --dropbtn-hover-color: #BA47C9;
+    --sidebar-content-color: #720782;
+    --calc-btn-hover-color: #080808;
+    --text-color: #B8B8B8;
 }
 
 /*Color theme: hurt my eye*/
 .hurt-theme {
-    --primary-color: blue;
-    --secondary-color: red;
-    --background-color: blue;
-    --sec-background-color: rgb(0, 204, 255);
-    --text-color: red;
+    --header-color: #0019FF;
+    --background-color: #FF2600;
+    --dropbtn-color: blue;
+    --dropbtn-hover-color: rgb(0, 204, 255);
+    --sidebar-content-color: #0019FF;
+    --calc-btn-hover-color: purple;
+    --text-color: black;
+}
+
+/*Color theme: drip Goku*/
+.dripGoku-theme {
+    --header-color: #FFFF00;
+    --background-color: #FFFFFF;
+    --dropbtn-color: #1FFFFF;
+    --dropbtn-hover-color: #A1FFFF;
+    --sidebar-content-color: #98ffff;
+    --calc-btn-hover-color: #4AFFF8;
+    --text-color: black;
+    background-image: url("../img/drip_Goku.jpg");
+    background-size: cover;
+    background-position-x: -250px;
+
 }
 
 /*Adjust overall element*/
 * {
+    font-family: system-ui;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border var(--transition-speed);
 }
         
 /*Adjust related element/class/id on itself*/
 header {
-    background-color: var(--primary-color);
+    background-color: var(--header-color);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -63,7 +86,7 @@ h1 {
 }
 
 body {
-    background-color: var(--secondary-color);
+    background-color: var(--background-color);
     color: var(--text-color);
 }
 
@@ -74,37 +97,42 @@ body {
 }
         
 .dropdown {
-    background-color: var(--background-color);
+    background-color: var(--dropbtn-color);
     color: var(--text-color);
     border: 2px solid var(--text-color);
     padding: 0.7rem 1.5rem;
     border-radius: 10px;
-    font-size: 1rem;    
+    font-size: 1rem;
     font-weight: 550;
-    transition: all 0.5s ease;
     display: flex;
     cursor: pointer;
-    align-items: center;    
+    align-items: center;
 }
         
 .dropdown:hover {
-    background-color: var(--sec-background-color);
-    color: var(--text-color);
+    background-color: var(--dropbtn-hover-color);
+    transform: translateY(4px);
+}
+
+.dropdown:active {
+    background-color: var(--dropbtn-color);
+    transform: translateY(10px);
 }
         
 .content {
-    background-color: var(--sec-background-color);
+    background-color: var(--dropbtn-hover-color);
     color: var(--text-color);
     display: none;
     overflow: hidden;
     position: absolute;
-    width: 150px;
+    width: 200px;
     border-radius: 10px;
     margin-top: 5px;
 }  
         
 .content button {
     color: var(--text-color);
+    font-size: 1rem;
     background: none;
     border: none;
     padding: 12px 16px;
@@ -113,12 +141,10 @@ body {
     width: 100%;
     text-align: left;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-size: 1rem;
 }
         
 .content button:hover {
-    background-color: var(--background-color);
+    background-color: var(--dropbtn-color);
     color: var(--text-color);
     font-size: larger;
     font-weight: 800;
@@ -131,17 +157,18 @@ body {
         
 /*Sidebar button*/
 .sidebar {
-    background-color: var(--sec-background-color);
+    background-color: var(--sidebar-content-color);
     color: var(--text-color);
     position: fixed;
     top: 0;
     left: -4500px;
     width: 450px;
-    height: 100vh;
+    height: fit-content;
     transition: left 0.8s ease;
     z-index: 1000;
     padding: 2rem;
-    overflow-y: auto;
+    resize: horizontal;
+    overflow: auto;
 }
 
 .sidebar.active {
@@ -168,5 +195,92 @@ body {
 }
         
 .close-btn:hover {  
-    color: var(--close-color);
+    color: var(--close-btn-color);
+}
+
+.close-btn:active {
+    color: var(--close-btn-active-color);
+}
+
+/*Calculator*/
+main {
+    display: flex;
+    flex: 1;
+    max-width: 2000px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.calculator {
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-top: 2rem;
+    width: 600px;
+    height: 750px;
+    margin-left: auto;
+}
+
+.calc-display {
+    background-color: var(--background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: right;
+    font-size: 2.5rem;
+    font-weight: 500;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+        
+.calc-btns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+        
+.calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 1.8rem;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calc-btn-opera, .calc-btn-equal {
+    color: var(--dropbtn-color);
+    font-weight: 500;
+}
+
+.calc-btn:hover, .calc-btn-opera:hover, .calc-btn-equal:hover {
+    background-color: var(--calc-btn-hover-color);
+    transform: translateY(4px);
+}
+
+.calc-btn:active, .calc-btn-opera:active, .calc-btn-equal:active {
+    background-color: var(--dropbtn-color);
+    transform: translateY(10px);
+}
+
+.calc-btn-clear {
+    color: red;
+    font-weight: 600;
+}
+
+.calc-btn-clear:hover {
+    background-color: var(--close-btn-color);
+    transform: translateY(4px);
+}
+
+.calc-btn-clear:active {
+    background-color: var(--close-btn-active-color);
+    transform: translateY(10px);
 }
