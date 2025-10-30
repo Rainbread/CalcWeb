@@ -17,11 +17,13 @@
                     <div class="content" data-menu="theme">
                         <ul>
                             <!--Default theme-->
-                            <li><button class="theme-option default-theme" data-theme="default-theme">Default</button></li>
+                            <li><button class="theme-option default-theme" data-theme="default">Default</button></li>
                             <!--Dark theme-->
-                            <li><button class="theme-option" data-theme="dark-theme">Dark</button></li>
+                            <li><button class="theme-option" data-theme="dark">Dark</button></li>
                             <!--Hurt my eye theme-->
-                            <li><button class="theme-option" data-theme="hurt-theme">Hurt</button></li>
+                            <li><button class="theme-option" data-theme="hurt">HURT<abbr title="Do Not Click">(WARNING)</abbr></button></li>
+                            <!--Drip Goku theme LMAO-->
+                            <li><button class="theme-option" data-theme="dripGoku">Drip Goku</button></li>
                         </ul>
                     </div>
                 </div>
@@ -40,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <h1><img src="img/calcweb.png" alt="logo" id="logo"> | CalcWeb</h1>
+            <h1><img src="img/calcweb.png" alt="CalcWeb_LOGO" id="logo"> | <em>CalcWeb</em></h1>
         </header>
     
     <!--Sidebar menu-->
@@ -53,9 +55,45 @@
 
         </div>
     </div>
-
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!--Calculator-->
+    <main>
+        <div class="calculator">
+            <!--Calculator display: initial value is 0-->
+            <div class="calc-display" id="display">
+                0
+            </div>
+            <!--Calculator button-->
+            <div class="calc-btns">
+                <button class="calc-btn-clear">C</button>
+                <button class="calc-btn">(</button>
+                <button class="calc-btn">)</button>
+                <button class="calc-btn-opera">%</button>
+
+                <button class="calc-btn">1</button>
+                <button class="calc-btn">2</button>
+                <button class="calc-btn">3</button>
+                <button class="calc-btn-opera">+</button>
+
+                <button class="calc-btn">4</button>
+                <button class="calc-btn">5</button>
+                <button class="calc-btn">6</button>
+                <button class="calc-btn-opera">-</button>
+
+                <button class="calc-btn">7</button>
+                <button class="calc-btn">8</button>
+                <button class="calc-btn">9</button>
+                <button class="calc-btn-opera">x</button>
+
+                <button class="calc-btn">.</button>
+                <button class="calc-btn">0</button>
+                <button class="calc-btn-equal">=</button>
+                <button class="calc-btn-opera">/</button>
+            </div>
+        </div>
+    </main>
+    
     <!--javascript here-->
     <script src="javascript/interface.js"></script>
 </body>
