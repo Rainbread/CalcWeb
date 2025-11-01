@@ -62,39 +62,40 @@
         <div class="calculator">
             <!--Calculator display: initial value is 0-->
             <div class="calc-display" id="display">
-                0
+                
             </div>
             <!--Calculator button-->
             <div class="calc-btns">
-                <button class="calc-btn-clear">C</button>
-                <button class="calc-btn">(</button>
-                <button class="calc-btn">)</button>
-                <button class="calc-btn-opera">%</button>
+                <button onclick = "clearDisplay()"class="calc-btn-clear">C</button>
+                <button  class="calc-btn">(</button>
+                <button  class="calc-btn">)</button>
+                <button onclick = "appendToDisplay('%')"class="calc-btn-opera">%</button>
 
-                <button class="calc-btn">1</button>
-                <button class="calc-btn">2</button>
-                <button class="calc-btn">3</button>
-                <button class="calc-btn-opera">+</button>
+                <button onclick = "appendToDisplay('1')" class="calc-btn">1</button>
+                <button onclick = "appendToDisplay('2')"class="calc-btn">2</button>
+                <button onclick = "appendToDisplay('3')"class="calc-btn">3</button>
+                <button onclick = "appendToDisplay('+')" class="calc-btn-opera">+</button>
 
-                <button class="calc-btn">4</button>
-                <button class="calc-btn">5</button>
-                <button class="calc-btn">6</button>
-                <button class="calc-btn-opera">-</button>
+                <button onclick = "appendToDisplay('4')"class="calc-btn">4</button>
+                <button onclick = "appendToDisplay('5')"class="calc-btn">5</button>
+                <button onclick = "appendToDisplay('6')"class="calc-btn">6</button>
+                <button onclick = "appendToDisplay('-')"class="calc-btn-opera">-</button>
 
-                <button class="calc-btn">7</button>
-                <button class="calc-btn">8</button>
-                <button class="calc-btn">9</button>
-                <button class="calc-btn-opera">x</button>
+                <button onclick = "appendToDisplay('7')"class="calc-btn">7</button>
+                <button onclick = "appendToDisplay('8')"class="calc-btn">8</button>
+                <button onclick = "appendToDisplay('9')"class="calc-btn">9</button>
+                <button onclick = "appendToDisplay('*')"class="calc-btn-opera">*</button>
 
-                <button class="calc-btn">.</button>
-                <button class="calc-btn">0</button>
-                <button class="calc-btn-equal">=</button>
-                <button class="calc-btn-opera">/</button>
+                <button onclick = "appendToDisplay('.')"class="calc-btn">.</button>
+                <button onclick = "appendToDisplay('0')"class="calc-btn">0</button>
+                <button onclick = "calculate()"class="calc-btn-equal">=</button>
+                <button onclick = "appendToDisplay('/')"class="calc-btn-opera">/</button>
             </div>
         </div>
     </main>
     
     <!--javascript here-->
     <script src="javascript/interface.js"></script>
+    <script src="javascript/Computation.js"></script>    
 </body>
 </html>
