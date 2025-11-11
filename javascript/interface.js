@@ -19,7 +19,7 @@ const sidebarContents = {
                     <p><strong>-:</strong> Subtract two or more numbers to obtain their difference.</p>
                     <p><strong>x:</strong> Mutiply two or more numbers to obtain their mutiplication.</p>
                     <p><strong>/:</strong> Divide two numbers to obtain their division.</p>
-                    <p><strong>%:</strong> Module two or more number to obtain their result.</p>
+                    <p><strong>%:</strong> Modulo two or more number to obtain their result.</p>
                     <p><strong>():</strong> Operation inside the parenthese will be calculated first.</p>
                     <p><strong>=:</strong> The result after the operations.</p>
                     <hr>
@@ -53,6 +53,20 @@ const sidebarContents = {
             const themeBtn = document.querySelectorAll('.theme-option');
             const savedTheme = localStorage.getItem('web-theme') || 'default';
             setTheme(savedTheme);
+            const advancedToggle = document.getElementById('advanced-toggle');
+            const advancedContent = document.getElementById('advanced-content');
+
+            //Drop-down list for advanced functions
+            if (advancedToggle && advancedContent) {
+                advancedToggle.addEventListener('click', function() {
+                    advancedContent.classList.toggle('active');
+                    if (advancedContent.classList.contains('active')) {
+                        this.innerHTML = 'Advanced Function ▲';
+                    } else {
+                        this.innerHTML = 'Advanced Function ▼';
+                    }
+                });
+            }
 
             //Event for all drop-down button
             dropdownBtn.forEach(button => {
