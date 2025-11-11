@@ -199,29 +199,31 @@ body {
     background: none;
     border: none;
     font-size: 30px;
+    font-weight: 600;
     cursor: pointer;
     transition: color 0.1s;
 }
         
 .close-btn:hover {  
     color: var(--close-btn-color);
-    font-size: 40px;
 }
 
 .close-btn:active {
     color: var(--close-btn-active-color);
 }
 
-/*Calculator*/
+/*Overall main area*/
 main {
     display: flex;
     flex: 1;
-    max-width: 2000px;
+    max-width: 1800px;
     margin: 1rem auto;
     padding: 0 2rem;
     gap: 2rem;
+    align-items: flex-start;
 }
 
+/*Calculator*/
 .calculator {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -249,6 +251,7 @@ main {
 
 .calc-display {
     background-color: var(--background-color);
+    opacity: 0.7;
     border: 1px solid var(--dropbtn-color);
     border-radius: 10px;
     padding: 1rem;
@@ -268,7 +271,7 @@ main {
     gap: 12px;
 }
         
-.calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear{
+.calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 2rem;
@@ -276,7 +279,7 @@ main {
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .calc-btn-opera, .calc-btn-equal {
@@ -306,5 +309,89 @@ main {
 
 .calc-btn-clear:active {
     background-color: var(--close-btn-active-color);
+    transform: translateY(10px);
+}
+
+/*Advance function*/
+.advancedFunction {
+    width: 300px;
+    margin-top: 1rem;
+    position: absolute;
+    left: 45rem;
+}
+
+.advanced-toggle {
+   background-color: var(--header-color);
+    color: var(--text-color);
+    border: 1px solid var(--dropbtn-color);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 550;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+    z-index: 2;
+}
+
+.advanced-toggle:hover {
+    background-color: var(--dropbtn-hover-color);
+    transform: translateY(4px);
+}
+
+.advanced-toggle:active {
+    transform: translateY(10px);
+}
+
+.advanced-content {
+    border-radius: 12px;
+    padding: 0.8rem;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.advanced-content::before {
+    content:'';
+    position: absolute;
+    background-color: var(--sidebar-content-color);
+    top: 4rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+.advanced-content.active {
+    display: block;
+}
+
+.advanced-calc-btns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.adv-btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    transition: all 0.2s ease;
+}
+
+.adv-btn:hover {
+    background-color: var(--calc-btn-hover-color);
+    transform: translateY(4px);
+}
+
+.adv-btn:active {
+    background-color: var(--dropbtn-color);
     transform: translateY(10px);
 }
