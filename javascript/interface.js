@@ -55,6 +55,7 @@ const sidebarContents = {
             setTheme(savedTheme);
             const advancedToggle = document.getElementById('advanced-toggle');
             const advancedContent = document.getElementById('advanced-content');
+            const display = document.getElementById('display');
 
             //Drop-down list for advanced functions
             if (advancedToggle && advancedContent) {
@@ -128,7 +129,6 @@ const sidebarContents = {
                 //Save color theme to local storage
                 localStorage.setItem('web-theme', theme);
             }
-
             
             //Close sidebar
             closeSidebar.addEventListener('click', function() {
@@ -140,5 +140,25 @@ const sidebarContents = {
             sidebarOverlay.addEventListener('click', function() {
                 sidebar.classList.remove('active');
                 sidebarOverlay.classList.remove('active');
+            });
+
+            //Event for display input
+            display.addEventListener('keydown', function(e) {
+                //Allowed keys to be input
+                const allowedKeys = ['0','1','2','3','4','5','6','7','8','9','+','-','*','/','%','(',')','.','Backspace','Enter','Escape'];
+                if (!allowedKeys.includes(e.key)) {
+                    e.preventDefault();
+                    return;
+                }
+                //Special keys
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    calculate();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    clearDisplay();
+                } else if (e.key === 'Backspace') {
+                    return;
+                }
             });
         });
