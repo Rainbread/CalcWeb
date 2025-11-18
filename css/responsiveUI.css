@@ -1,1 +1,204 @@
+/*Responive interface*/
+@media screen and (max-width: 1400px) {
+    main {
+        max-width: 1200px;
+        gap: 1.5rem;
+    }
+    
+    .calculator {
+        width: 550px;
+        height: 700px;
+        padding: 1.5rem;
+    }
+    
+    .advancedFunction {
+        left: 40rem;
+        width: 280px;
+    }
+    
+    .calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear {
+        padding: 1.8rem;
+        font-size: 1.6rem;
+    }
+    
+    .calc-display {
+        font-size: 2.2rem;
+        min-height: 90px;
+    }
+}
 
+@media screen and (max-width: 1200px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .calculator {
+        width: 500px;
+        height: 650px;
+        margin-left: 0;
+        order: 2;
+    }
+    
+    .advancedFunction {
+        position: static;
+        width: 500px;
+        order: 1;
+        margin-top: 0;
+    }
+    
+    .advanced-content::before {
+        top: 3.5rem;
+    }
+    
+    .calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear {
+        padding: 1.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .calc-display {
+        font-size: 2rem;
+        min-height: 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0.8rem 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .header-left {
+        gap: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .dropdown {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 0.5rem auto;
+    }
+    
+    .calculator {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .advancedFunction {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .calc-btns {
+        gap: 8px;
+    }
+    
+    .calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear {
+        padding: 1.2rem;
+        font-size: 1.3rem;
+    }
+    
+    .calc-display {
+        font-size: 1.8rem;
+        min-height: 70px;
+        padding: 0.8rem;
+    }
+    
+    .advanced-toggle {
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .adv-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .sidebar {
+        width: 90%;
+        max-width: 400px;
+        padding: 1.5rem;
+    }
+    
+    .sidebar-header h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-left {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .dropdown-container {
+        width: 100%;
+    }
+    
+    .dropdown {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .content {
+        width: 100%;
+    }
+    
+    .calculator {
+        padding: 0.8rem;
+    }
+    
+    .calc-btns {
+        gap: 6px;
+    }
+    
+    .calc-btn, .calc-btn-opera, .calc-btn-equal, .calc-btn-clear {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .calc-display {
+        font-size: 1.5rem;
+        min-height: 60px;
+        padding: 0.6rem;
+    }
+    
+    .advanced-calc-btns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .adv-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .history-item {
+        padding: 8px;
+    }
+    
+    .history-expression {
+        font-size: 1rem;
+    }
+    
+    .history-result {
+        font-size: 0.9rem;
+    }
+    
+    .history-use-btn, .history-delete-btn {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+}
