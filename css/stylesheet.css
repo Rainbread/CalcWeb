@@ -167,7 +167,7 @@ body {
     animation: fadeIn 0.3s ease;
 }
         
-/*Sidebar button*/
+/*Sidebar*/
 .sidebar {
     background-color: var(--sidebar-content-color);
     color: var(--text-color);
@@ -175,9 +175,10 @@ body {
     top: 0;
     left: -4500px;
     width: 450px;
-    height: fit-content;
+    height: auto;
     transition: left 0.8s ease;
     padding: 2rem;
+    z-index: 5;
 }
 
 .sidebar.active {
@@ -352,6 +353,9 @@ main {
     padding: 0.8rem;
     display: none;
     animation: fadeIn 0.3s ease;
+    position: relative;
+    background-color: var(--sidebar-content-color);
+    z-index: -1;
 }
 
 .advanced-content::before {
@@ -364,7 +368,7 @@ main {
     right: 0;
     border-radius: 20px;
     z-index: -1;
-    filter: blur(2px);
+    display: none;
 }
 
 .advanced-content.active {
@@ -396,4 +400,91 @@ main {
 .adv-btn:active {
     background-color: var(--dropbtn-color);
     transform: translateY(10px);
+}
+
+/*Calculation history*/
+#historyList {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.history-item {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--dropbtn-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.history-expression {
+    font-weight: bold;
+    font-size: 1.2rem;
+    word-break: break-all;
+}
+
+.history-result {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.history-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.history-btn {
+    background: var(--dropbtn-color);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.history-btn:hover {
+    background: var(--dropbtn-hover-color);
+}
+
+.history-use-btn, .history-delete-btn {
+    background: var(--dropbtn-color);
+    color: var(--text-color);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    align-self: flex-start;
+}
+
+.history-use-btn:hover {
+    background: var(--btn-color);
+}
+
+.history-delete-btn:hover {
+    background: var(--close-btn-color);
+}
+
+/*Scroll bar for calculation history*/
+#historyList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#historyList::-webkit-scrollbar-track {
+    border-radius: 3px;
+}
+
+#historyList::-webkit-scrollbar-thumb {
+    background: var(--dropbtn-color);
+    border-radius: 3px;
+}
+
+#historyList::-webkit-scrollbar-thumb:hover {
+    background: var(--dropbtn-hover-color);
 }
