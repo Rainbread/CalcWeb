@@ -35,7 +35,14 @@ function clearDisplay() {
 
 function calculate() {
     try {
-        display.textContent = eval(display.textContent); //Used to evaluate a complete expression
+        const expression = display.textContent;
+        const result = eval(display.textContent); //Used to evaluate a complete expression
+        display.textContent = result;
+        
+        //Add to history
+        if (typeof calcHistory !== 'undefined') {
+            calcHistory.addRecord(expression, result);
+        }
     }
     catch (error) {
         display.textContent = "Error"; //Used when an incomplete or invalid expression occur 
@@ -43,82 +50,3 @@ function calculate() {
         justEval = true;
     }
 }
-
-
-/*function adding(num1, num2) {
-
-    const a = Number(num1);
-    const b = Number(num2);
-
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return NaN;
-
-
-    const raw = a + b;
-
-    const aIsDecimal = !Number.isInteger(a);
-    const bIsDecimal = !Number.isInteger(b);
-    const rawIsDecimal = !Number.isInteger(raw);
-
-    return (aIsDecimal || bIsDecimal || rawIsDecimal) ? Number(raw.toFixed(2)) : raw;
-
-}
-
-
-function subtracting(num1, num2) {
-
-
-    const a = Number(num1);
-    const b = Number(num2);
-
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return NaN;
-
-
-    const raw = a - b;
-
-
-    const aIsDecimal = !Number.isInteger(a);
-    const bIsDecimal = !Number.isInteger(b);
-    const rawIsDecimal = !Number.isInteger(raw);
-
-    return (aIsDecimal || bIsDecimal || rawIsDecimal) ? Number(raw.toFixed(2)) : raw;
-
-}
-
-function multiplying(num1, num2) {
-
-
-    const a = Number(num1);
-    const b = Number(num2);
-
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return NaN;
-
-    const raw = a * b;
-
-
-    const aIsDecimal = !Number.isInteger(a);
-    const bIsDecimal = !Number.isInteger(b);
-    const rawIsDecimal = !Number.isInteger(raw);
-
-    return (aIsDecimal || bIsDecimal || rawIsDecimal) ? Number(raw.toFixed(2)) : raw;
-}
-
-function dividing(num1, num2) {
-
-    const a = Number(num1);
-    const b = Number(num2);
-
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return NaN;
-
-    if (b === 0) return undefined
-    const raw = a / b;
-
-    const aIsDecimal = !Number.isInteger(a);
-    const bIsDecimal = !Number.isInteger(b);
-    const rawIsDecimal = !Number.isInteger(raw);
-
-    return (aIsDecimal || bIsDecimal || rawIsDecimal) ? Number(raw.toFixed(2)) : raw;
-
-}*/
-
-
-
