@@ -81,13 +81,32 @@
 
         <!--Calculator-->
         <div class="calculator">
+            <div class="calc-display-wrapper">
             <!--Calculator display: initial value is 0-->
             <div class="calc-display" id="display" contenteditable="true" tabindex="0"></div>
+
+                <!--Fraction function-->
+             <div class="fraction-editor" id="fraction-editor">
+                    <div class="fraction-box">
+                        <input id="fraction-num" type="text" class="fraction-input" placeholder="" />
+                        <div class="fraction-bar"></div>
+                        <input id="fraction-den" type="text" class="fraction-input" placeholder="" />
+                    </div>
+                    <div class="fraction-editor-buttons">
+                        <button type="button" onclick="confirmFraction()" class="small-btn">OK</button>
+                        <button type="button" onclick="cancelFraction()" class="small-btn">X</button>
+                    </div>
+                </div>
+            </div>
+
+
+                
             <!--Calculator button-->
             <div class="calc-btns">
                 <button onclick = "clearDisplay()" class="calc-btn-clear">C</button>
-                <button class="calc-btn">(</button>
-                <button class="calc-btn">)</button>
+                <button onclick="appendToDisplay('(')" class="calc-btn">(</button>
+                <button onclick="appendToDisplay(')')" class="calc-btn">)</button>
+
                 <button onclick = "appendToDisplay('%')" class="calc-btn-opera">%</button>
 
                 <button onclick = "appendToDisplay('1')" class="calc-btn">1</button>
@@ -109,6 +128,7 @@
                 <button onclick = "appendToDisplay('0')" class="calc-btn">0</button>
                 <button onclick = "calculate()" class="calc-btn-equal">=</button>
                 <button onclick = "appendToDisplay('/')" class="calc-btn-opera">/</button>
+                <button onclick = "showFractionEditor()" class = "calc-btn" >a/b</button> 
             </div>
         </div>
     </main>
