@@ -214,9 +214,9 @@
 
 .fraction-editor{
         position: absolute;
-        top: 30%;
-        right: 12px;
-        transform: translate(-450%, 10%); 
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%); 
         display: none;
         align-items: center;
         gap: 12px;
