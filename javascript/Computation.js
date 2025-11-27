@@ -2,6 +2,7 @@
 const display = document.getElementById("display");
 const isOp = ch => ['+', '-', '*', '/', '%'].includes(ch); //Used when user wants to continue evaluating more after their previous evaluation
 let justEval = false; //Used to confrimed a user has done an evaluation. 
+display.textContent = "0";
 
 //fraction variables
 let fractionActive = false;
@@ -30,6 +31,13 @@ if (fractionActive) {
     
     let current = display.textContent || '';
     if (current === 'Error') current = '';
+
+    if (current === '0' && (/\d/.test(input) || input === '.')) {
+        display.textContent = (input === '.') ? '0.' : String(input);
+        justEval = false;
+        return;
+    }
+
     if (justEval) {
         if (isOp(input)) { 
             display.textContent = current + input; 
@@ -43,7 +51,7 @@ if (fractionActive) {
     // Rules for an empty display
     if (current === '') {
         if (input === '.') { 
-            display.textContent = ''; //Display 0 on the left ide of "." when user press this first 
+            display.textContent = '0.'; //Display 0 on the left ide of "." when user press this first 
             return;
          }
         // Don’t start with +, *, /, %, but allow "-" (negative) and "("
@@ -53,7 +61,7 @@ if (fractionActive) {
 }
 
 function clearDisplay() {
-    display.textContent = ""; //When button "C" is pressed
+    display.textContent = "0"; //When button "C" is pressed
     justEval = false;
     if (fractionActive) {
         cancelFraction(); // hide overlay + set fractionActive = false
