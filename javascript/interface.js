@@ -72,54 +72,7 @@ class CalculationHistory {
 }
 
 //Global variable
-const calcHistory = new CalculationHistory();
-
-//Sidebar contents
-const sidebarContents = {
-    history: {
-        title: "CalcWeb History",
-        content: `
-            <div id="historyList">
-                <p>No Calculation Yet!</p>
-            </div>
-            <div class="history-controls">
-                <button id="clearHistory" class="history-btn">Clear All History</button>
-            </div>
-        `
-    },
-    tutorial: {
-        title: "CalcWeb Tutorial",
-        content: `
-            <p><strong>Operators:</strong></p>
-            <p><strong>Basic:</strong> Contain basic arithmetic function (e.g. +, -).</p>
-            <p><strong>Advance:</strong> Contain advance arithmetic function (e.g. sin(), log(), !, etc).</p>
-            <hr>
-            <p><strong>Basic Arithmetic Operators:</strong></p>
-            <p><strong>AC:</strong> Clear inputs and outputs on the display.</p>
-            <p><strong>+:</strong> Adding two or more numbers togerther to obtain their sum.</p>
-            <p><strong>-:</strong> Subtract two or more numbers to obtain their difference.</p>
-            <p><strong>x:</strong> Mutiply two or more numbers to obtain their mutiplication.</p>
-            <p><strong>/:</strong> Divide two numbers to obtain their division.</p>
-            <p><strong>%:</strong> Modulo two or more number to obtain their result.</p>
-            <p><strong>():</strong> Operation inside the parenthese will be calculated first.</p>
-            <p><strong>=:</strong> The result after the operations.</p>
-            <hr>
-            <p><strong>Advance Arithmetic Operators:</strong></p>
-            <p><strong>UPCOMING SOON!</strong></p>
-        `
-    },
-    about: {
-        title: "About CalcWeb",
-        content: `
-            <p><strong>Developer:</strong> Mingwei You, Rafael Carrilllo</p>
-            <p><strong>Why Developed:</strong> Just for fun and learn :-P</p>
-            <p><strong>Why are the Color so Bad:</strong> idk</p>
-            <hr>
-            <p><strong>Date Created:</strong> 10/9/2025</p>
-            <p><strong>Date Updated:</strong> 11/17/2025</p>
-        `
-    }
-};  
+const calcHistory = new CalculationHistory(); 
 
 //Define variables
 document.addEventListener('DOMContentLoaded', function() {
@@ -127,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdownContent = document.querySelectorAll('.content');
     const sidebarBtn = document.querySelectorAll('.sidebar-btn');
     const sidebar = document.getElementById('sidebar');
-    const sidebarTitle = document.getElementById('sidebar-title');
-    const sidebarContent = document.getElementById('sidebar-content');
     const closeSidebar = document.getElementById('close-sidebar');
     const sidebarOverlay = document.getElementById('sidebar-overlay');
     const themeBtn = document.querySelectorAll('.theme-option');
@@ -195,24 +146,38 @@ document.addEventListener('DOMContentLoaded', function() {
     //Event for clear history
     document.addEventListener('click', function(e) {
         if (e.target.id === 'clearHistory') {
-            if (confirm('Are you sure you want to clear all history?')) {
+            if (confirm('Are You Sure You Want to Clear All History?')) {
                 calcHistory.clearHistory();
             }
         }
     });
     
-    //Open sidebar
+    //Open Sidebar
     function openSidebar(type) {
-        if (sidebarContents[type]) {
-            sidebarTitle.textContent = sidebarContents[type].title;
-            sidebarContent.innerHTML = sidebarContents[type].content;
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            //Update the history in sidebar
-            if (type === 'history') {
+        const sidebarTitle = document.getElementById('sidebar-title');
+        document.getElementById('history-content').style.display = 'none';
+        document.getElementById('tutorial-content').style.display = 'none';
+        document.getElementById('about-content').style.display = 'none';
+        //Switch to correspond content
+        switch(type) {
+            case 'history':
+                sidebarTitle.textContent = "CalcWeb History";
+                document.getElementById('history-content').style.display = 'block';
                 calcHistory.updateDisplay();
-            }
+                break;
+            case 'tutorial':
+                sidebarTitle.textContent = "CalcWeb Tutorial";
+                document.getElementById('tutorial-content').style.display = 'block';
+                break;
+            case 'about':
+                sidebarTitle.textContent = "About CalcWeb";
+                document.getElementById('about-content').style.display = 'block';
+                break;
         }
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        sidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
     }
     
     //Switch color theme
