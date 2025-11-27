@@ -53,7 +53,46 @@
             <button class="close-btn" id="close-sidebar">X</button>
         </div>
         <div class="sidebar-content" id="sidebar-content">
-            
+
+            <!--Calculation Hisotry || Dynamic-->
+            <div id="history-content" style="display: none;">
+                <div id="historyList">
+                    <p>No Calculation Yet!</p>
+                </div>
+                <div class="history-controls">
+                    <button id="clearHistory" class="history-btn">Clear All History</button>
+                </div>
+            </div>
+
+            <!--Tutorial || Static-->
+            <div id="tutorial-content" style="display: none;">
+                <p><strong>Operators:</strong></p>
+                <p><strong>Basic:</strong> Contain basic arithmetic function (e.g. +, -).</p>
+                <p><strong>Advance:</strong> Contain advance arithmetic function (e.g. sin(), log(), !, etc).</p>
+                <hr>
+                <p><strong>Basic Arithmetic Operators:</strong></p>
+                <p><strong>AC:</strong> Clear inputs and outputs on the display.</p>
+                <p><strong>+:</strong> Adding two or more numbers togerther to obtain their sum.</p>
+                <p><strong>-:</strong> Subtract two or more numbers to obtain their difference.</p>
+                <p><strong>x:</strong> Mutiply two or more numbers to obtain their mutiplication.</p>
+                <p><strong>/:</strong> Divide two numbers to obtain their division.</p>
+                <p><strong>%:</strong> Modulo two or more number to obtain their result.</p>
+                <p><strong>():</strong> Operation inside the parenthese will be calculated first.</p>
+                <p><strong>=:</strong> The result after the operations.</p>
+                <hr>
+                <p><strong>Advance Arithmetic Operators:</strong></p>
+                <p><strong>UPCOMING SOON!</strong></p>
+            </div>
+
+            <!--About || Static-->
+            <div id="about-content" style="display: none;">
+                <p><strong>Developer:</strong> Mingwei You, Rafael Carrilllo</p>
+                <p><strong>Why Developed:</strong> Just for fun and learn :-P</p>
+                <p><strong>Why are the Color so Bad:</strong> idk</p>
+                <hr>
+                <p><strong>Date Created:</strong> 10/9/2025</p>
+                <p><strong>Date Updated:</strong> 11/18/2025</p>
+            </div>
         </div>
     </div>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -75,7 +114,6 @@
                     <button class="adv-btn">^</button>
                     <button class="adv-btn">e</button>
                     <button class="adv-btn">x</button>
-                    <button class="adv-btn">a/b</button> 
                 </div>
             </div>
         </div>
@@ -132,15 +170,12 @@
 
                 <!--This button will be here temperaily. Test it out-->
                 <button onclick="showFractionEditor()" class="calc-btn">a/b</button>
-
-
-                
             </div>
         </div>
     </main>
     
     <!--javascript here-->
     <script src="javascript/interface.js"></script>
-    <script src="javascript/Computation.js"></script>    
+    <script src="javascript/Computation.js"></script>
 </body>
 </html>
