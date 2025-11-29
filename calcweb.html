@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en_us">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="icon" type="image/png" size="32x32" href="img/calcweb.png">
-        <link rel="stylesheet" href="css/stylesheet.css">
-        <link rel="stylesheet" href="css/responsiveUI.css">
-        <title>CalcWeb - Let's Calc!</title>
-    </head>
-    <body class="default-theme">
-        <header>
-            <!--Wrap drop-down menu together in one place-->
-            <div class="header-left">
-                <!--Color theme menu-->
-                <div class="dropdown-container">
-                    <button type="button" class="dropdown" data-menu="theme">COLOR THEME ▼</button>
-                    <div class="content" data-menu="theme">
-                        <ul>
-                            <!--Default theme-->
-                            <li><button class="theme-option default-theme" data-theme="default">Default</button></li>
-                            <!--Dark theme-->
-                            <li><button class="theme-option" data-theme="dark">Dark</button></li>
-                            <!--Hurt my eye theme-->
-                            <li><button class="theme-option" data-theme="hurt">HURT<abbr title="Do Not Click">(WARNING)</abbr></button></li>
-                            <!--Drip Goku theme LMAO-->
-                            <li><button class="theme-option" data-theme="dripGoku">Drip Goku</button></li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!--Drop-down menu-->
-                <div class="dropdown-container">
-                    <button type="button" class="dropdown" data-menu="more">
-                        MORE ▼
-                    </button>
-                    <div class="content" data-menu="more">
-                        <ul>
-                            <li><button data-type="history" class="sidebar-btn">History</button></li>
-                            <li><button data-type="tutorial" class="sidebar-btn">Tutorial</button></li>
-                            <li><button data-type="about" class="sidebar-btn">About</button></li>
-                        </ul>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" size="32x32" href="img/calcweb.png">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/responsiveUI.css">
+    <title>CalcWeb - Let's Calc!</title>
+</head>
+
+<body class="default-theme">
+    <header>
+        <!--Wrap drop-down menu together in one place-->
+        <div class="header-left">
+            <!--Color theme menu-->
+            <div class="dropdown-container">
+                <button type="button" class="dropdown" data-menu="theme">COLOR THEME ▼</button>
+                <div class="content" data-menu="theme">
+                    <ul>
+                        <!--Default theme-->
+                        <li><button class="theme-option default-theme" data-theme="default">Default</button></li>
+                        <!--Dark theme-->
+                        <li><button class="theme-option" data-theme="dark">Dark</button></li>
+                        <!--Hurt my eye theme-->
+                        <li><button class="theme-option" data-theme="hurt">HURT<abbr
+                                    title="Do Not Click">(WARNING)</abbr></button></li>
+                        <!--Drip Goku theme LMAO-->
+                        <li><button class="theme-option" data-theme="dripGoku">Drip Goku</button></li>
+                    </ul>
                 </div>
             </div>
-            <h1><img src="img/calcweb.png" alt="CalcWeb_LOGO" id="logo"> | <em>CalcWeb</em></h1>
-        </header>
-    
+
+            <!--Drop-down menu-->
+            <div class="dropdown-container">
+                <button type="button" class="dropdown" data-menu="more">
+                    MORE ▼
+                </button>
+                <div class="content" data-menu="more">
+                    <ul>
+                        <li><button data-type="history" class="sidebar-btn">History</button></li>
+                        <li><button data-type="tutorial" class="sidebar-btn">Tutorial</button></li>
+                        <li><button data-type="about" class="sidebar-btn">About</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h1><img src="img/calcweb.png" alt="CalcWeb_LOGO" id="logo"> | <em>CalcWeb</em></h1>
+    </header>
+
     <!--Sidebar menu-->
-    <div class="sidebar" id="sidebar">  
+    <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h2 class="sidebar-title" id="sidebar-title"></h2>
             <button class="close-btn" id="close-sidebar">X</button>
@@ -103,29 +106,36 @@
             <button class="advanced-toggle" id="advanced-toggle">Advanced Function ▼</button>
             <div class="advanced-content" id="advanced-content">
                 <div class="advanced-calc-btns">
-                    <button class="adv-btn">sin</button>
-                    <button class="adv-btn">cos</button>
-                    <button class="adv-btn">tan</button>
-                    <button class="adv-btn">log</button>
-                    <button class="adv-btn">ln</button>
-                    <button class="adv-btn">√</button>
-                    <button class="adv-btn">!</button>
-                    <button class="adv-btn">π</button>
-                    <button class="adv-btn">^</button>
-                    <button class="adv-btn">e</button>
-                    <button class="adv-btn">x</button>
+                    <button class="adv-btn" onclick="appendToDisplay('sin(')">sin</button>
+                    <button class="adv-btn" onclick="appendToDisplay('cos(')">cos</button>
+                    <button class="adv-btn" onclick="appendToDisplay('tan(')">tan</button>
+                    <button class="adv-btn" onclick="appendToDisplay('log(')">log</button>
+                    <button class="adv-btn" onclick="appendToDisplay('ln(')">ln</button>
+                    <button class="adv-btn" onclick="appendToDisplay('√(')">√</button>
+                    <button class="adv-btn" onclick="appendToDisplay('!')">!</button>
+                    <button class="adv-btn" onclick="appendToDisplay('π')">π</button>
+                    <button class="adv-btn" onclick="appendToDisplay('^')">^</button>
+                    <button class="adv-btn" onclick="appendToDisplay('e')">e</button>
+                    <button class="adv-btn" onclick="appendToDisplay('x')">x</button>
+                    <button onclick="showFractionEditor()" class="adv-btn">a/b</button> 
+
+
                 </div>
             </div>
-        </div>
+        </div> 
+
+
+       
+
 
         <!--Calculator-->
         <div class="calculator">
             <div class="calc-display-wrapper">
-            <!--Calculator display: initial value is 0-->
-            <div class="calc-display" id="display" contenteditable="true" tabindex="0"></div>
+                <!--Calculator display: initial value is 0-->
+                <div class="calc-display" id="display" contenteditable="true" tabindex="0"></div>
 
                 <!--Fraction function-->
-             <div class="fraction-editor" id="fraction-editor">
+                <div class="fraction-editor" id="fraction-editor">
                     <div class="fraction-box">
                         <input id="fraction-num" type="text" class="fraction-input" placeholder="" />
                         <div class="fraction-bar"></div>
@@ -139,43 +149,48 @@
             </div>
 
 
-                
+
             <!--Calculator button-->
             <div class="calc-btns">
-                <button onclick = "clearDisplay()" class="calc-btn-clear">C</button>
+                <button onclick="clearDisplay()" class="calc-btn-clear">C</button>
                 <button onclick="appendToDisplay('(')" class="calc-btn">(</button>
                 <button onclick="appendToDisplay(')')" class="calc-btn">)</button>
 
-                <button onclick = "appendToDisplay('%')" class="calc-btn-opera">%</button>
+                <button onclick="appendToDisplay('%')" class="calc-btn-opera">%</button>
 
-                <button onclick = "appendToDisplay('1')" class="calc-btn">1</button>
-                <button onclick = "appendToDisplay('2')" class="calc-btn">2</button>
-                <button onclick = "appendToDisplay('3')" class="calc-btn">3</button>
-                <button onclick = "appendToDisplay('+')" class="calc-btn-opera">+</button>
+                <button onclick="appendToDisplay('1')" class="calc-btn">1</button>
+                <button onclick="appendToDisplay('2')" class="calc-btn">2</button>
+                <button onclick="appendToDisplay('3')" class="calc-btn">3</button>
+                <button onclick="appendToDisplay('+')" class="calc-btn-opera">+</button>
 
-                <button onclick = "appendToDisplay('4')" class="calc-btn">4</button>
-                <button onclick = "appendToDisplay('5')" class="calc-btn">5</button>
-                <button onclick = "appendToDisplay('6')" class="calc-btn">6</button>
-                <button onclick = "appendToDisplay('-')" class="calc-btn-opera">-</button>
+                <button onclick="appendToDisplay('4')" class="calc-btn">4</button>
+                <button onclick="appendToDisplay('5')" class="calc-btn">5</button>
+                <button onclick="appendToDisplay('6')" class="calc-btn">6</button>
+                <button onclick="appendToDisplay('-')" class="calc-btn-opera">-</button>
 
-                <button onclick = "appendToDisplay('7')" class="calc-btn">7</button>
-                <button onclick = "appendToDisplay('8')" class="calc-btn">8</button>
-                <button onclick = "appendToDisplay('9')" class="calc-btn">9</button>
-                <button onclick = "appendToDisplay('*')" class="calc-btn-opera">*</button>
+                <button onclick="appendToDisplay('7')" class="calc-btn">7</button>
+                <button onclick="appendToDisplay('8')" class="calc-btn">8</button>
+                <button onclick="appendToDisplay('9')" class="calc-btn">9</button>
+                <button onclick="appendToDisplay('*')" class="calc-btn-opera">*</button>
 
-                <button onclick = "appendToDisplay('.')" class="calc-btn">.</button>
-                <button onclick = "appendToDisplay('0')" class="calc-btn">0</button>
-                <button onclick = "calculate()" class="calc-btn-equal">=</button>
-                <button onclick = "appendToDisplay('/')" class="calc-btn-opera">/</button>
+                <button onclick="appendToDisplay('.')" class="calc-btn">.</button>
+                <button onclick="appendToDisplay('0')" class="calc-btn">0</button>
+                <button onclick="calculate()" class="calc-btn-equal">=</button>
+                <button onclick="appendToDisplay('/')" class="calc-btn-opera">/</button>
 
-                <!--This button will be here temperaily. Test it out-->
-                <button onclick="showFractionEditor()" class="calc-btn">a/b</button>
-            </div>
+                
+         </div>                   
+
+
         </div>
     </main>
-    
+
     <!--javascript here-->
-    <script src="javascript/interface.js"></script>
     <script src="javascript/Computation.js"></script>
+    <script src="javascript/interface.js"></script>
+    
+  
+
 </body>
+
 </html>
