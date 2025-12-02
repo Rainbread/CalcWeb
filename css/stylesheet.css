@@ -489,6 +489,12 @@ main {
     background: var(--dropbtn-hover-color);
 }
 
+#tutorial-content {
+    max-height: 400px;     
+    overflow-y: auto;
+    padding-right: 8px;    
+}
+
 /*fraction display*/
 .calc-display-wrapper{
         position: relative;
