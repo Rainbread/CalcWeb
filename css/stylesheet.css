@@ -222,6 +222,7 @@ main {
     padding: 0 2rem;
     gap: 2rem;
     align-items: flex-start;
+    justify-content: flex-end;
 }
 
 /*Calculator*/
@@ -232,9 +233,10 @@ main {
     margin-top: 1rem;
     width: 600px;
     height: 750px;
-    margin-left: auto;
+    
     position: relative;
     z-index: 2;
+    order: 1;
 }
 
 .calculator::before {
@@ -319,8 +321,11 @@ main {
 .advancedFunction {
     width: 300px;
     margin-top: 1rem;
-    position: absolute;
-    left: 45rem;
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-left: 1.5rem;
+    
 }
 
 .advanced-toggle {
