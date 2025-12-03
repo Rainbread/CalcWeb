@@ -32,6 +32,9 @@
                 </div>
             </div>
 
+            <!--Unit Conversion-->
+            <button type="button" class="dropdown" id="unit-conversion-btn">UNIT CONVERSION</button>
+
             <!--Drop-down menu-->
             <div class="dropdown-container">
                 <button type="button" class="dropdown" data-menu="more">MORE</button>
@@ -71,8 +74,6 @@
                 <p><strong>Basic:</strong> Contain basic arithmetic function (e.g. +, -).</p>
                 <p><strong>Advance:</strong> Contain advance arithmetic function (e.g. sin(), log(), !, etc).</p>
                 <hr>
-
-
                 <p><strong>Basic Arithmetic Operators:</strong></p>
                 <p><strong>C:</strong> Clear inputs and outputs on the display.</p>
                 <p><strong>+:</strong> Adding two or more numbers togerther to obtain their sum.</p>
@@ -84,8 +85,6 @@
                 <p><strong>():</strong> Operation inside the parenthese will be calculated first.</p>
                 <p><strong>=:</strong> The result after the operations.</p>
                 <hr>
-
-
                 <p><strong>Advance Arithmetic Operators:</strong></p>
                 <p><strong>sin:</strong> operating the opposite over hypotenuse of a right triangle.</p>
                 <p><strong>cos:</strong> operating the adjacent over hypotenuse of a right triangle.</p>
@@ -121,6 +120,81 @@
         </div>
     </div>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!--Unit conversion sidebar-->
+<div class="unit-conversion-sidebar" id="unit-conversion-sidebar">
+    <div class="unit-conversion-header">
+        <h2>Unit Conversion</h2>
+        <button class="close-btn" id="close-unit-conversion">X</button>
+    </div>
+    <div class="unit-conversion-content">
+        <div class="conversion-input-group">
+            <div class="conversion-from">
+                <input type="text" id="conversion-value" class="conversion-input" placeholder="0">
+                <select id="conversion-from-unit" class="conversion-select">
+                    <option value="kg">Kilograms (KG)</option>
+                    <option value="g">Grams (G)</option>
+                    <option value="mg">Milligrams (MG)</option>
+                    <option value="lb">Pounds (LB)</option>
+                    <option value="oz">Ounces (OZ)</option>
+                    <option value="m">Meters (M)</option>
+                    <option value="cm">Centimeters (CM)</option>
+                    <option value="mm">Millimeters (MM)</option>
+                    <option value="km">Kilometers (KM)</option>
+                    <option value="in">Inches (IN)</option>
+                    <option value="ft">Feet (FT)</option>
+                    <option value="mi">Miles (MI)</option>
+                    <option value="L">Liters (L)</option>
+                    <option value="mL">Milliliters (ML)</option>
+                    <option value="gal">Gallons (GAL)</option>
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+            </div>
+            
+            <div class="conversion-arrow">
+                <span>=</span>
+            </div>
+            
+            <div class="conversion-to">
+                <div id="conversion-result" class="conversion-result">1000</div>
+                <select id="conversion-to-unit" class="conversion-select">
+                    <option value="g">Grams (G)</option>
+                    <option value="kg" selected>Kilograms (KG)</option>
+                    <option value="mg">Milligrams (MG)</option>
+                    <option value="lb">Pounds (LB)</option>
+                    <option value="oz">Ounces (OZ)</option>
+                    <option value="m">Meters (M)</option>
+                    <option value="cm">Centimeters (CM)</option>
+                    <option value="mm">Millimeters (MM)</option>
+                    <option value="km">Kilometers (KM)</option>
+                    <option value="in">Inches (IN)</option>
+                    <option value="ft">Feet (FT)</option>
+                    <option value="mi">Miles (MI)</option>
+                    <option value="L">Liters (L)</option>
+                    <option value="mL">Milliliters (ML)</option>
+                    <option value="gal">Gallons (GAL)</option>
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="conversion-categories">
+            <button class="category-btn active" data-category="mass">Mass</button>
+            <button class="category-btn" data-category="length">Length</button>
+            <button class="category-btn" data-category="volume">Volume</button>
+            <button class="category-btn" data-category="temperature">Temperature</button>
+        </div>
+        
+        <div class="unit-options" id="unit-options">
+        </div>
+    </div>
+</div>
+
+<div class="unit-conversion-overlay" id="unit-conversion-overlay"></div>
 
     <main>
         <!--Advanced functions-->
@@ -195,7 +269,8 @@
     </main>
 
     <!--javascript here-->
-    <script src="javascript/Computation.js"></script>
+    <script src="javascript/computation.js"></script>
+    <script src="javascript/unitConversion.js"></script>
     <script src="javascript/interface.js"></script>
     
 </body>
