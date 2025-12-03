@@ -133,12 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
             
-//Color theme event
-themeBtn.forEach(button => {
-    button.addEventListener('click', function() {
-        const theme = this.getAttribute('data-theme');
-        setTheme(theme);
-        const themeContent = document.querySelector('.content[data-menu="theme"]');
+    //Color theme event
+    themeBtn.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            setTheme(theme);
+            const themeContent = document.querySelector('.content[data-menu="theme"]');
                 themeContent.classList.remove('show');
             });
         });
@@ -194,10 +194,12 @@ themeBtn.forEach(button => {
                 '0','1','2','3','4','5','6','7','8','9',
                 '+','-','*','/','%','(',')','.',
                 'Backspace','Enter','Escape','Tab',
+                'ArrowLeft', 'ArrowRight',
                 's','S','c','C','t','T','l','L','n','N',
-                'p','P','e','E','^'
+                'p','P','e','E','^', '!'
             ];
-                
+            
+            //Allow crtl+c and crtl+v work
             if (e.ctrlKey) return;
                 
             if (!allowedKeys.includes(e.key) && !e.ctrlKey) {
@@ -212,6 +214,8 @@ themeBtn.forEach(button => {
                 e.preventDefault();
                 clearDisplay();
             } else if (e.key === 'Backspace' || e.key === 'Tab') {
+                return;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                 return;
             } else if (e.key === '^') {
                 e.preventDefault();
@@ -251,9 +255,10 @@ themeBtn.forEach(button => {
                     e.preventDefault();
                     appendToDisplay('e');
                 }
-            }
+            } 
         });
-            
+        
+        //Fraction event
         document.addEventListener('keydown', (e) => {
             if (!fractionActive) return;
             const numInput = document.getElementById('fraction-num');
@@ -284,6 +289,9 @@ themeBtn.forEach(button => {
         function useHistoryRecord(expression) {
             const display = document.getElementById('display');
             display.textContent = expression;
+            setTimeout(() => {
+            setCursorToEnd(display);
+        }, 10);
         }
 
         //Calculation hisotry (Delete single record)
@@ -302,4 +310,5 @@ themeBtn.forEach(button => {
         window.confirmFraction = confirmFraction;
         window.useHistoryRecord = useHistoryRecord;
         window.deleteHistoryRecord = deleteHistoryRecord;
+        window.setCursorAtEnd = setCursorAtEnd;
         window.calcHistory = calcHistory;
