@@ -4,6 +4,27 @@ const isOp = ch => ['+', '-', '*', '/', '%'].includes(ch);
 let justEval = false;
 display.textContent = "0";
 
+//Move the cursor to the end of number
+function setCursorAtEnd() {
+    setTimeout(() => {
+        const display = document.getElementById('display');
+        if (display && display.textContent) {
+            display.focus();
+            
+            //Create and select range and set to the end
+            const range = document.createRange();
+            const selection = window.getSelection();
+            const textNode = display.firstChild || display;
+            range.selectNodeContents(textNode);
+            range.collapse(false);
+            
+            //Add new range after clear out old range
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }, 10);
+}
+
 //Fraction variables
 let fractionActive = false;
 let fractionTarget = 'num';
@@ -47,11 +68,9 @@ function appendFunction(funcName) {
 function appendFactorial() {
     let current = display.textContent || '';
     if (current === 'Error') current = '';
-            
     if (current === '0' || current === '') {
         return;
     }
-
     const lastChar = current.slice(-1);
     if (/[\d)]/.test(lastChar)) {
         display.textContent = current + '!';
@@ -124,6 +143,9 @@ function clearDisplay() {
     if (fractionActive) {
         cancelFraction();
     }
+    setTimeout(() => {
+        setCursorAtEnd();
+    }, 10);
 }
 
 //Preprocessed expressions
@@ -197,10 +219,12 @@ function calculate() {
         let expression = display.textContent.trim();
         const fracResult = tryFractionExpression(expression);
                 
+        let result;
         if (fracResult !== null) {
-            display.textContent = fracResult;
+            result = fracResult;
+            display.textContent = result;
             if (typeof calcHistory !== 'undefined') {
-                calcHistory.addRecord(expression, fracResult);
+                calcHistory.addRecord(expression, result);
             }
         } else {
             const processedExpr = preprocessExpression(expression);
@@ -211,9 +235,11 @@ function calculate() {
                 calcHistory.addRecord(expression, result);
             }
         }
+        setCursorAtEnd();
     } catch (error) {
         console.error('Calculation error:', error);
         display.textContent = "Error";
+        setCursorAtEnd();
     } finally {
         justEval = true;
     }
