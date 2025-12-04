@@ -23,32 +23,6 @@
     --text-color: #B8B8B8;
 }
 
-/*Color theme: hurt my eye*/
-.hurt-theme {
-    --header-color: #0019FF;
-    --background-color: #FF2600;
-    --dropbtn-color: blue;
-    --dropbtn-hover-color: rgb(0, 204, 255);
-    --sidebar-content-color: #0019FF;
-    --calc-btn-hover-color: purple;
-    --text-color: black;
-}
-
-/*Color theme: drip Goku*/
-.dripGoku-theme {
-    --header-color: #FFFF00;
-    --background-color: #FFFFFF;
-    --dropbtn-color: #1FFFFF;
-    --dropbtn-hover-color: #A1FFFF;
-    --sidebar-content-color: #98ffff;
-    --calc-btn-hover-color: #4AFFF8;
-    --text-color: black;
-    background-image: url("../img/drip_Goku.jpg");
-    background-size: cover;
-    background-position-x: -250px;
-
-}
-
 /*Adjust overall element*/
 * {
     font-family: system-ui;
