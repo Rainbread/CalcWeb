@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
     //Color theme
     function setTheme(theme) {
-        document.body.classList.remove('default-theme', 'dark-theme', 'hurt-theme', 'dripGoku-theme');
+        document.body.classList.remove('default-theme', 'dark-theme');
         if (theme !== 'default') {
             document.body.classList.add(theme + '-theme');
         } else {
